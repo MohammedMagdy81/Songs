@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/muicPlayingFragment"
+        android:name="com.example.songapp.fragments.MuicPlayingFragment"
+        android:label="fragment_muic_playing"
+        tools:layout="@layout/fragment_muic_playing" >
+        <action
+            android:id="@+id/action_muicPlayingFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <argument
+            android:name="song"
+            app:argType="com.example.songapp.models.Song" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicListFragment"
+        android:name="com.example.songapp.fragments.MusicListFragment"
+        android:label="fragment_music_list"
+        tools:layout="@layout/fragment_music_list" >
+        <action
+            android:id="@+id/action_musicListFragment_to_muicPlayingFragment"
+            app:destination="@id/muicPlayingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.songapp.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment" />
+    </fragment>
+</navigation>
